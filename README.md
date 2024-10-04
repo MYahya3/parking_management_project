@@ -7,7 +7,7 @@ Counts and displays available and occupied parking spaces.
 Interactive tool for selecting parking space areas.
 ## Installation
 Clone the repo:
-git clone https://github.com/MYahya3/parking-space-detection.git
+git clone https://github.com/MYahya3/parking_management_project
 cd parking-space-detection
 Install dependencies:
 pip install -r requirements.txt
