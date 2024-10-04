@@ -10,7 +10,9 @@ while True:
         print("Not Found")
         exit()
 
-    cv2.imshow("Frame", cv2.resize(frame, (640,640)))
+    # cv2.imshow("Frame", cv2.resize(frame, (640,640)))
+    cv2.namedWindow("Frame", cv2.WINDOW_NORMAL)  # Create a resizable window
+    cv2.imshow("Frame", frame)  # Display the frame
 
     key = cv2.waitKey(1)
 
