@@ -76,6 +76,12 @@ try:
             save_parking_status(occupied_count, available_count)  # Save parking status to JSON
             last_save_time = current_time  # Reset the timer
 
+        # Check if 's' key is pressed to save the parking status manually
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('s'):
+            save_parking_status(occupied_count, available_count)  # Save parking status to JSON
+            print("Parking status saved manually.")
+
         # Iterate through the results
         for box, cls in zip(boxes, classes):
             x1, y1, x2, y2 = box
@@ -106,7 +112,7 @@ try:
         frame_resized = cv2.resize(frame, (640, 480))        
         cv2.imshow("Frame", frame_resized)
         out.write(frame_resized)
-        if cv2.waitKey(1) & 0xFF == ord("q"):
+        if key == ord("q"):
             break
 
     cap.release()
