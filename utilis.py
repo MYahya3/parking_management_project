@@ -4,6 +4,7 @@ import json
 import time
 import os
 
+
 # To make detections and get required outputs
 def YOLO_Detection(model, frame, conf=0.35):
     # Perform inference on an image
@@ -13,6 +14,7 @@ def YOLO_Detection(model, frame, conf=0.35):
     classes = results[0].boxes.cls.tolist()
     names = results[0].names
     return boxes, classes, names
+
 
 def save_parking_status(occupied_count, available_count, filepath='parking_status.json'):
     parking_status_entry = {

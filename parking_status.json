@@ -118,5 +118,161 @@
         "occupied_slots": 12,
         "available_slots": 15,
         "total_slots": 27
+    },
+    {
+        "timestamp": "2024-10-07 20:03:15",
+        "occupied_slots": 16,
+        "available_slots": 13,
+        "total_slots": 29
+    },
+    {
+        "timestamp": "2024-10-07 20:03:25",
+        "occupied_slots": 17,
+        "available_slots": 12,
+        "total_slots": 29
+    },
+    {
+        "timestamp": "2024-10-07 20:03:36",
+        "occupied_slots": 14,
+        "available_slots": 15,
+        "total_slots": 29
+    },
+    {
+        "timestamp": "2024-10-07 20:16:04",
+        "occupied_slots": 13,
+        "available_slots": 11,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-07 20:16:14",
+        "occupied_slots": 13,
+        "available_slots": 11,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-07 20:16:24",
+        "occupied_slots": 13,
+        "available_slots": 11,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-07 20:16:34",
+        "occupied_slots": 13,
+        "available_slots": 11,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-07 20:16:44",
+        "occupied_slots": 13,
+        "available_slots": 11,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-07 21:16:24",
+        "occupied_slots": 11,
+        "available_slots": 13,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-07 21:16:35",
+        "occupied_slots": 11,
+        "available_slots": 13,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-07 21:16:45",
+        "occupied_slots": 11,
+        "available_slots": 13,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-07 21:16:55",
+        "occupied_slots": 11,
+        "available_slots": 13,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-07 21:17:05",
+        "occupied_slots": 11,
+        "available_slots": 13,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 10:36:38",
+        "occupied_slots": 0,
+        "available_slots": 24,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 10:36:48",
+        "occupied_slots": 0,
+        "available_slots": 24,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 10:36:58",
+        "occupied_slots": 0,
+        "available_slots": 24,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 10:37:09",
+        "occupied_slots": 0,
+        "available_slots": 24,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 10:37:19",
+        "occupied_slots": 0,
+        "available_slots": 24,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 10:43:15",
+        "occupied_slots": 0,
+        "available_slots": 24,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 10:43:25",
+        "occupied_slots": 0,
+        "available_slots": 24,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 10:43:35",
+        "occupied_slots": 0,
+        "available_slots": 24,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 10:43:45",
+        "occupied_slots": 0,
+        "available_slots": 24,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 17:36:21",
+        "occupied_slots": 5,
+        "available_slots": 19,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 17:36:31",
+        "occupied_slots": 5,
+        "available_slots": 19,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 17:36:42",
+        "occupied_slots": 5,
+        "available_slots": 19,
+        "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-08 17:36:52",
+        "occupied_slots": 5,
+        "available_slots": 19,
+        "total_slots": 24
     }
 ]
