@@ -23,16 +23,17 @@ def SAHI_Detection(frame):
         slice_height=640,
         slice_width=640,
         overlap_height_ratio=0.2,
-        overlap_width_ratio=0.2
+        overlap_width_ratio=0.2,
     )
     boxes = []
     classes = []
     names = []
     for object_prediction in result.object_prediction_list:
-        box = object_prediction.bbox.to_xyxy()
-        boxes.append(box)
-        classes.append(object_prediction.category.id)
-        names.append(object_prediction.category.name)
+        if object_prediction.category.name in ["car", "bus", "truck"]:
+            box = object_prediction.bbox.to_xyxy()
+            boxes.append(box)
+            classes.append(object_prediction.category.id)
+            names.append(object_prediction.category.name)
     return boxes, classes, names
 
 def save_parking_status(occupied_count, available_count, filepath='parking_status.json'):
