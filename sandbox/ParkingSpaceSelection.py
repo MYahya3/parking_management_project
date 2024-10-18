@@ -74,7 +74,7 @@ def main(select_new_image=True, new_pos = True):
     """Main execution function to process video and select ROIs."""
     global posList, polygon_points  # Declare global variables here to access them
 
-    pth_list = ["rtmp://stream.dpctechstudios.com/stream/1fba2adb-6e08-448a-b4cd-809f5fb18313.stream","rtmp://stream.dpctechstudios.com/stream/1264b0aa-de17-4ac5-997e-17388bfc6cbf.stream"]
+    pth_list = ["rtmp://stream.dpctechstudios.com/stream/1fba2adb-6e08-448a-b4cd-809f5fb18313.stream","rtmp://stream.dpctechstudios.com/stream/422f28ff-5470-42e1-8b21-5015f92dbd1e.stream"]
 
     idx = 0
     path = pth_list[idx]
