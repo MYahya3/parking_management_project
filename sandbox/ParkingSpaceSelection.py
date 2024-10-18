@@ -70,16 +70,16 @@ def process_roi_image(image_path, save_dir):
 
     cv2.destroyAllWindows()
 
-def main(select_new_image=True):
+def main(select_new_image=True, new_pos = True):
     """Main execution function to process video and select ROIs."""
     global posList, polygon_points  # Declare global variables here to access them
 
     pth_list = ["rtmp://stream.dpctechstudios.com/stream/1fba2adb-6e08-448a-b4cd-809f5fb18313.stream","rtmp://stream.dpctechstudios.com/stream/1264b0aa-de17-4ac5-997e-17388bfc6cbf.stream"]
 
-    idx = 1
+    idx = 0
     path = pth_list[idx]
 
-    if select_new_image:
+    if select_new_image and new_pos:
         cap = check_video_path(path)
         if cap:
             saved_image, save_dir = process_video(cap, idx)  # Capture and save the frame
@@ -87,6 +87,18 @@ def main(select_new_image=True):
             polygon_points.clear()  # Clear polygon points for new selection
             print(f"Image saved at: {saved_image}")  # Debug statement
             process_roi_image(saved_image, save_dir)  # Process the saved image and allow ROI selection
+
+    elif select_new_image and new_pos == False:
+        cap = check_video_path(path)
+        if cap:
+            saved_image, save_dir = process_video(cap, idx)  # Capture and save the frame
+            posList = load_existing_rois(save_dir)  # Load existing ROIs
+            # Check if existing ROIs were loaded
+            if not posList:
+                print("No existing ROIs found. Starting with an empty list.")
+            polygon_points.clear()  # Clear current polygon points to avoid confusion
+            process_roi_image(saved_image, save_dir)  # Process the loaded image and ROIs
+
     else:
         save_dir = f"output/{idx}/"  # Access the existing directory
         saved_image = os.path.join(save_dir, f"{idx}.png")
@@ -102,4 +114,4 @@ def main(select_new_image=True):
 
 
 # Call the main function
-main(select_new_image=False)  # Change to True to capture new images and ROIs
+main(select_new_image=True, new_pos=False)  # Change to True to capture new images and ROIs
