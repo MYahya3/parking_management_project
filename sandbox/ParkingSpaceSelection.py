@@ -11,10 +11,10 @@ posList = []  # List to store existing ROIs
 roi_save_path = ""  # Path to save ROIs
 
 
-def load_existing_rois(save_dir):
+def load_existing_rois(save_dir, file_name):
     """Load existing ROIs from the specified directory."""
     try:
-        with open(os.path.join(save_dir, 'carParkPos'), 'rb') as f:
+        with open(os.path.join(save_dir, f'{file_name}'), 'rb') as f:
             return pickle.load(f)
     except FileNotFoundError:
         return []  # Return empty list if the file does not exist
@@ -40,10 +40,10 @@ def mouseClick(event, x, y, flags, params):
                     pickle.dump(posList, f)
                 break
 
-def process_roi_image(image_path, save_dir):
+def process_roi_image(image_path, save_dir, file_name):
     """Process the saved image to mark polygons and handle mouse clicks."""
     global roi_save_path, polygon_points, posList  # Declare the variables as global
-    roi_save_path = os.path.join(save_dir, 'carParkPos')  # Save ROIs in the same folder
+    roi_save_path = os.path.join(save_dir, f'{file_name}')  # Save ROIs in the same folder
 
     cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
     while True:
@@ -86,31 +86,30 @@ def main(select_new_image=True, new_pos = True):
             posList = []  # Reset ROIs for new selection
             polygon_points.clear()  # Clear polygon points for new selection
             print(f"Image saved at: {saved_image}")  # Debug statement
-            process_roi_image(saved_image, save_dir)  # Process the saved image and allow ROI selection
+            process_roi_image(saved_image, save_dir, os.path.basename(save_dir))  # Process the saved image and allow ROI selection
 
     elif select_new_image and new_pos == False:
         cap = check_video_path(path)
         if cap:
             saved_image, save_dir = process_video(cap, idx)  # Capture and save the frame
-            posList = load_existing_rois(save_dir)  # Load existing ROIs
+            posList = load_existing_rois(save_dir, os.path.basename(save_dir))  # Load existing ROIs
             # Check if existing ROIs were loaded
             if not posList:
                 print("No existing ROIs found. Starting with an empty list.")
             polygon_points.clear()  # Clear current polygon points to avoid confusion
-            process_roi_image(saved_image, save_dir)  # Process the loaded image and ROIs
+            process_roi_image(saved_image, save_dir, os.path.basename(save_dir))  # Process the loaded image and ROIs
 
     else:
         save_dir = f"output/{idx}/"  # Access the existing directory
         saved_image = os.path.join(save_dir, f"{idx}.png")
         print(f"Looking for image at: {saved_image}")  # Debug statement
-        posList = load_existing_rois(save_dir)  # Load existing ROIs
+        posList = load_existing_rois(save_dir, os.path.basename(save_dir))  # Load existing ROIs
 
         # Check if existing ROIs were loaded
         if not posList:
             print("No existing ROIs found. Starting with an empty list.")
         polygon_points.clear()  # Clear current polygon points to avoid confusion
-        process_roi_image(saved_image, save_dir)  # Process the loaded image and ROIs
-
+        process_roi_image(saved_image, save_dir, os.path.basename(save_dir))  # Process the loaded image and ROIs
 
 
 # Call the main function
