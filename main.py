@@ -14,7 +14,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # Load YOLO model and move it to the appropriate device
 model = YOLO("yolov8n.pt")
 model.to(device)
-os.makedirs("output", exist_ok=True)
+
 # Load the positions from the pickle file
 with open(r'carParkPos', 'rb') as f:
     posList = pickle.load(f)
@@ -109,7 +109,7 @@ try:
                 label_detection(frame=frame, text=str(name), tbox_color=(50, 50, 50), left=x1, top=y1, bottom=x2, right=y2)
             else:
                 label_detection(frame=frame, text=str(name), tbox_color=(100, 25, 50), left=x1, top=y1, bottom=x2, right=y2)
-        frame_resized = cv2.resize(frame, (640, 480))        
+        frame_resized = cv2.resize(frame, (640, 480))
         cv2.imshow("Frame", frame_resized)
         out.write(frame_resized)
         if key == ord("q"):
