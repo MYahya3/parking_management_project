@@ -4,11 +4,9 @@ import time
 import pickle
 import threading
 from flask import Flask, jsonify
-<<<<<<< HEAD
 from utilis import drawPolygons, label_detection, save_parking_status, SAHI_Detection
-=======
+
 from utilis import drawPolygons, label_detection, save_parking_status, sahi_detection, get_detction_info
->>>>>>> 99f1cdd3e803d5bc01c6ca53628bc3122352b6a1
 
 
 # Load the positions from the pickle file (positions of parking spots)
@@ -17,11 +15,10 @@ with open('output/0/carParkPos', 'rb') as f:
 
 
 # Define save interval for parking status and frame processing interval (20 seconds)
-<<<<<<< HEAD
+
 process_interval = 1 * 60  # 20 seconds in seconds
-=======
 process_interval = 1 * 10  # 20 seconds in seconds
->>>>>>> 99f1cdd3e803d5bc01c6ca53628bc3122352b6a1
+
 
 
 # Global variables for counting parking slots
@@ -60,12 +57,11 @@ def process_frame(cap):
             return
 
         # Perform SAHI detection on the frame
-<<<<<<< HEAD
         boxes, classes, names = SAHI_Detection(frame)
-=======
+
         results = sahi_detection(frame)
         boxes, classes, names = get_detction_info(results)
->>>>>>> 99f1cdd3e803d5bc01c6ca53628bc3122352b6a1
+
 
         # Collect detection points to check if they are inside the parking polygons
         detection_points = [(int((x1 + x2) / 2), int((y1 + y2) / 2)) for x1, y1, x2, y2 in boxes]
@@ -112,11 +108,10 @@ def start_flask_app():
     app.run(host='0.0.0.0', port=5000)
 
 if __name__ == "__main__":
-<<<<<<< HEAD
+
     url_1 = "rtmp://stream.dpctechstudios.com/stream/1264b0aa-de17-4ac5-997e-17388bfc6cbf.stream"
-=======
+
     url_1 = "rtmp://stream.dpctechstudios.com/stream/1fba2adb-6e08-448a-b4cd-809f5fb18313.stream"
->>>>>>> 99f1cdd3e803d5bc01c6ca53628bc3122352b6a1
     cap = cv2.VideoCapture(url_1)
 
     # Start the Flask API server in a separate thread
