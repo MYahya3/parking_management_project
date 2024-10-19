@@ -2,7 +2,7 @@ import cv2
 
 url = "rtmp://stream.dpctechstudios.com/stream/1fba2adb-6e08-448a-b4cd-809f5fb18313.stream"
 url_1 = "rtmp://stream.dpctechstudios.com/stream/1264b0aa-de17-4ac5-997e-17388bfc6cbf.stream"
-cap = cv2.VideoCapture(url_1)
+cap = cv2.VideoCapture(url)
 
 while True:
     ret, frame = cap.read()

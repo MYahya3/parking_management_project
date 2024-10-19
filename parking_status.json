@@ -274,5 +274,101 @@
         "occupied_slots": 5,
         "available_slots": 19,
         "total_slots": 24
+    },
+    {
+        "timestamp": "2024-10-15 00:30:44",
+        "occupied_slots": 0,
+        "available_slots": 5,
+        "total_slots": 5
+    },
+    {
+        "timestamp": "2024-10-15 00:30:54",
+        "occupied_slots": 0,
+        "available_slots": 5,
+        "total_slots": 5
+    },
+    {
+        "timestamp": "2024-10-15 00:31:05",
+        "occupied_slots": 0,
+        "available_slots": 5,
+        "total_slots": 5
+    },
+    {
+        "timestamp": "2024-10-15 00:31:29",
+        "occupied_slots": 0,
+        "available_slots": 5,
+        "total_slots": 5
+    },
+    {
+        "timestamp": "2024-10-15 00:31:39",
+        "occupied_slots": 0,
+        "available_slots": 5,
+        "total_slots": 5
+    },
+    {
+        "timestamp": "2024-10-15 00:31:50",
+        "occupied_slots": 0,
+        "available_slots": 5,
+        "total_slots": 5
+    },
+    {
+        "timestamp": "2024-10-15 00:32:00",
+        "occupied_slots": 0,
+        "available_slots": 5,
+        "total_slots": 5
+    },
+    {
+        "timestamp": "2024-10-15 00:32:10",
+        "occupied_slots": 0,
+        "available_slots": 5,
+        "total_slots": 5
+    },
+    {
+        "timestamp": "2024-10-15 00:32:20",
+        "occupied_slots": 0,
+        "available_slots": 5,
+        "total_slots": 5
+    },
+    {
+        "timestamp": "2024-10-15 00:33:48",
+        "occupied_slots": 1,
+        "available_slots": 6,
+        "total_slots": 7
+    },
+    {
+        "timestamp": "2024-10-15 00:33:58",
+        "occupied_slots": 1,
+        "available_slots": 6,
+        "total_slots": 7
+    },
+    {
+        "timestamp": "2024-10-15 00:34:08",
+        "occupied_slots": 1,
+        "available_slots": 6,
+        "total_slots": 7
+    },
+    {
+        "timestamp": "2024-10-15 00:34:18",
+        "occupied_slots": 1,
+        "available_slots": 6,
+        "total_slots": 7
+    },
+    {
+        "timestamp": "2024-10-15 00:34:48",
+        "occupied_slots": 1,
+        "available_slots": 6,
+        "total_slots": 7
+    },
+    {
+        "timestamp": "2024-10-15 00:34:58",
+        "occupied_slots": 1,
+        "available_slots": 6,
+        "total_slots": 7
+    },
+    {
+        "timestamp": "2024-10-15 00:35:08",
+        "occupied_slots": 1,
+        "available_slots": 6,
+        "total_slots": 7
     }
 ]

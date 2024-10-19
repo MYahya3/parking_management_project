@@ -3,27 +3,24 @@ import numpy as np
 import json
 import time
 import os
-import torch
 from sahi import AutoDetectionModel
 from sahi.predict import get_sliced_prediction
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 sahi_model = AutoDetectionModel.from_pretrained(
     model_type='yolov8',
     model_path="yolov8n.pt",
-    confidence_threshold=0.3,
-    device=device
+    confidence_threshold=0.15
 )
 
 def SAHI_Detection(frame):
     result = get_sliced_prediction(
         frame,
         sahi_model,
-        slice_height=640,
-        slice_width=640,
-        overlap_height_ratio=0.2,
-        overlap_width_ratio=0.2,
+        slice_height=720,
+        slice_width=720,
+        overlap_height_ratio=0.1,
+        overlap_width_ratio=0.1,
     )
     boxes = []
     classes = []

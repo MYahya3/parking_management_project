@@ -14,7 +14,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # Load YOLO model and move it to the appropriate device
 model = YOLO("yolov8n.pt")
 model.to(device)
-
+os.makedirs("output", exist_ok=True)
 # Load the positions from the pickle file
 with open(r'carParkPos', 'rb') as f:
     posList = pickle.load(f)
