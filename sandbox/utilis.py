@@ -9,8 +9,7 @@ from sahi.predict import get_sliced_prediction
 
 sahi_model = AutoDetectionModel.from_pretrained(
     model_type='yolov8',
-    model_path="yolov8n.pt",
-    confidence_threshold=0.15
+    model_path="yolov8s.pt",
     confidence_threshold=0.1,
 )
 
@@ -19,10 +18,8 @@ def sahi_detection(frame):
     result = get_sliced_prediction(
         frame,
         sahi_model,
-        slice_height=720,
-        slice_width=720,
-        slice_height=520,
-        slice_width=520,
+        slice_height=640,
+        slice_width=640,
         overlap_height_ratio=0.1,
         overlap_width_ratio=0.1,
     )
@@ -33,6 +30,7 @@ def get_detction_info(result):
     classes = []
     names = []
     for object_prediction in result.object_prediction_list:
+        # print(object_prediction.category.name)
         if object_prediction.category.name in ["car", "bus", "truck","motorcycle"]:
             box = object_prediction.bbox.to_xyxy()
             boxes.append(box)

@@ -1,7 +1,6 @@
 import os
 import cv2
 
-
 def check_video_path(path):
     """Check if the video path is valid and return a VideoCapture object."""
     cap = cv2.VideoCapture(path)
@@ -9,7 +8,6 @@ def check_video_path(path):
         print(f"Error: Cannot open video at {path}")
         return None
     return cap
-
 
 def process_video(cap, idx):
     """Process video, extract and save a specific frame."""
