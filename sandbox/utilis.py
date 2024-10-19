@@ -10,11 +10,8 @@ from sahi.predict import get_sliced_prediction
 sahi_model = AutoDetectionModel.from_pretrained(
     model_type='yolov8',
     model_path="yolov8n.pt",
-<<<<<<< HEAD
     confidence_threshold=0.15
-=======
     confidence_threshold=0.1,
->>>>>>> 99f1cdd3e803d5bc01c6ca53628bc3122352b6a1
 )
 
 
@@ -22,13 +19,10 @@ def sahi_detection(frame):
     result = get_sliced_prediction(
         frame,
         sahi_model,
-<<<<<<< HEAD
         slice_height=720,
         slice_width=720,
-=======
         slice_height=520,
         slice_width=520,
->>>>>>> 99f1cdd3e803d5bc01c6ca53628bc3122352b6a1
         overlap_height_ratio=0.1,
         overlap_width_ratio=0.1,
     )
