@@ -13,6 +13,8 @@ roi_save_path = ""  # Path to save ROIs
 
 def load_existing_rois(save_dir, file_name):
     """Load existing ROIs from the specified directory."""
+    print(save_dir)
+    print(os.path.join(save_dir, f'{file_name}'))
     try:
         with open(os.path.join(save_dir, f'{file_name}'), 'rb') as f:
             return pickle.load(f)
@@ -76,7 +78,7 @@ def load_json(json_file):
     """Load paths and indices from a JSON file."""
     with open(json_file, 'r') as f:
         data = json.load(f)
-    return data['path_list'], data['idx_list']
+    return data['url_list'], data['idx_list']
 
 
 def main(select_new_image=True, new_pos=True):
@@ -112,8 +114,8 @@ def main(select_new_image=True, new_pos=True):
                 process_roi_image(saved_image, save_dir, os.path.basename(save_dir))  # Process the loaded image and ROIs
 
         else:
-            save_dir = f"output/{idx}/"  # Access the existing directory
-            saved_image = os.path.join(save_dir, f"{idx}.png")
+            save_dir = f"output/{idx}"  # Access the existing directory
+            saved_image = os.path.join(f"{save_dir}/", f"{idx}.png")
             print(f"Looking for image at: {saved_image}")  # Debug statement
             posList = load_existing_rois(save_dir, os.path.basename(save_dir))  # Load existing ROIs
 

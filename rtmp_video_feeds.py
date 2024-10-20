@@ -1,48 +1,52 @@
+import os
 import cv2
 
-url = "rtmp://stream.dpctechstudios.com/stream/1fba2adb-6e08-448a-b4cd-809f5fb18313.stream"
-url_1 = "rtmp://stream.dpctechstudios.com/stream/1264b0aa-de17-4ac5-997e-17388bfc6cbf.stream"
+def check_video_path(path):
+    """Check if the video path is valid and return a VideoCapture object."""
+    cap = cv2.VideoCapture(path)
+    if not cap.isOpened():
+        print(f"Error: Cannot open video at {path}")
+        return None
+    return cap
 
-cap = cv2.VideoCapture(url_1)
+def process_video(cap, idx):
+    """Process video, extract and save a specific frame."""
+    # Create directory if it doesn't exist
+    save_dir = f"output/{idx}"
+    os.makedirs(save_dir, exist_ok=True)
+
+    saved_image_path = None
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            print("Frame not found or end of video reached.")
+            break
+        # time.sleep(2)
+
+        saved_image_path = f"{save_dir}/{idx}.png"
+        cv2.imwrite(saved_image_path, frame)
 
 
-# Check if the video stream is opened successfully
-if not cap.isOpened():
-    print("Error: Could not open video stream")
-    exit()
+        # Display the frame in a resizable window
+        # cv2.namedWindow("Frame", cv2.WINDOW_NORMAL)
+        # cv2.imshow("Frame", frame)
+
+        cv2.waitKey(1)
+        break  # Break immediately (for demo)
+
+    # Release video capture and close all OpenCV windows
+    cap.release()
+    cv2.destroyAllWindows()
+
+    return saved_image_path, save_dir  # Return the saved image path and directory
 
 
-# Get frame width, height, and FPS from the video stream
-frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-fps = cap.get(cv2.CAP_PROP_FPS) if cap.get(cv2.CAP_PROP_FPS) > 0 else 30  # Default to 30 FPS if not available
-
-# Define the codec and create a VideoWriter object (use 'XVID' codec, or 'mp4v' for .mp4 files)
-fourcc = cv2.VideoWriter_fourcc(*'mp4')  # or 'mp4v' for MP4 format
-output_file = "output_video.mp4"  # Output file name
-out = cv2.VideoWriter(output_file, fourcc, fps, (frame_width, frame_height))
-
-while True:
-    ret, frame = cap.read()
-    if not ret:
-        print("Not Found")
-        break  # Exit the loop if the video stream is not available
-
-    # Write the frame to the output video file
-    out.write(frame)
-
-    # Display the frame
-    cv2.namedWindow("Frame", cv2.WINDOW_NORMAL)  # Create a resizable window
-    cv2.imshow("Frame", frame)  # Display the frame
-
-    # Break the loop if 'q' is pressed
-    key = cv2.waitKey(1)
-    if key == ord("q"):
-        break
-
-# Release the VideoCapture and VideoWriter objects
-cap.release()
-out.release()
-
-# Destroy all OpenCV windows
-cv2.destroyAllWindows()
+# Example usage
+# pth_list = ["rtmp://stream.dpctechstudios.com/stream/1fba2adb-6e08-448a-b4cd-809f5fb18313.stream","rtmp://stream.dpctechstudios.com/stream/1264b0aa-de17-4ac5-997e-17388bfc6cbf.stream"]
+#
+# idx = 1
+# path = pth_list[idx]
+#
+# cap = check_video_path(path)
+# if cap:
+#     saved_image, save_dir = process_video(cap, idx)  # Capture and save the frame
