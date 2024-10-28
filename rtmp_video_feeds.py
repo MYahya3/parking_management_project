@@ -12,7 +12,7 @@ def check_video_path(path):
 def process_video(cap, idx):
     """Process video, extract and save a specific frame."""
     # Create directory if it doesn't exist
-    save_dir = f"output/{idx}"
+    save_dir = f"reference_data/{idx}"
     os.makedirs(save_dir, exist_ok=True)
 
     saved_image_path = None
