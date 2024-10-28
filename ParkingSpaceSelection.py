@@ -109,7 +109,7 @@ def select_slots(select_new_image=True, new_pos=True):
                 process_roi_image(saved_image, save_dir, os.path.basename(save_dir))  # Process the loaded image and ROIs
 
         else:
-            save_dir = f"output/{idx}"  # Access the existing directory
+            save_dir = f"reference_data/{idx}"  # Access the existing directory
             saved_image = os.path.join(f"{save_dir}/", f"{idx}.png")
             print(f"Looking for image at: {saved_image}")  # Debug statement
             posList = load_existing_rois(save_dir, os.path.basename(save_dir))  # Load existing ROIs
