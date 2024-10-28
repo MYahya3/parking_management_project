@@ -15,7 +15,7 @@ def run_detection(json_file = "paths_and_idx.json"):
     # idx = 0  # You can modify this to handle different indices dynamically if needed
 
         # Get the corresponding folder path and URL for the selected idx
-        folder_path = os.path.join(f"output/{idx}/{idx}")
+        folder_path = os.path.join(f"reference_data/{idx}/{idx}")
         video_url = url_list[idx]  # Use the URL corresponding to the selected index
 
         # Load the positions from the pickle file (positions of parking spots)
@@ -60,7 +60,7 @@ def run_detection(json_file = "paths_and_idx.json"):
                             cv2.FONT_HERSHEY_COMPLEX_SMALL, 0.95, (50, 50, 50), 1, cv2.LINE_AA)
 
                 # Save parking status
-                save_parking_status(occupied_count, available_count, filepath=f"output/{idx}//{idx}_slots_info.json")
+                save_parking_status(occupied_count, available_count, filepath=f"reference_data/{idx}//{idx}_slots_info.json")
 
                 for box, cls, name in zip(boxes, classes, names):
                     x1, y1, x2, y2 = box
